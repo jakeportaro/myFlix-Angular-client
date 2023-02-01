@@ -113,7 +113,7 @@ export class UserRegistrationService {
 
   updateUser(updatedUser: any): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.put(apiUrl + 'users' + '${username}' + '${updatedUser}', {headers: new HttpHeaders(
+    return this.http.put(apiUrl + 'users' + '${username}' + updatedUser, {headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
       })}).pipe(
