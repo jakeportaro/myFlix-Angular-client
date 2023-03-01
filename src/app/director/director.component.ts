@@ -11,9 +11,10 @@ export class DirectorComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA)
     public data: {
       Name: string;
-      Bio: string;
+      Birthday: string;
     }
   ) {}
 
   ngOnInit(): void {}
+
 }

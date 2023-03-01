@@ -30,9 +30,6 @@ const appRoutes: Routes = [
   { path: 'movies', component: MovieCardComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
   { path: 'profile', component: ProfilePageComponent },
-  { path: 'genre', component: GenreComponent },
-  { path: 'director', component: DirectorComponent },
-  { path: 'description', component: DescriptionComponent },
 ];
 
 @NgModule({
