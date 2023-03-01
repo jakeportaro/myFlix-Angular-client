@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ProfilePageComponent implements OnInit{
 
-  user: any={}
+  user: any={};
 
   @Input() userUpdateData = { Username: '', Password: '', Email: '', Birthday: '' };//Decorator
 
@@ -21,7 +21,7 @@ export class ProfilePageComponent implements OnInit{
     ) {}
 
   ngOnInit(): void {
-    this.getUserInfo();
+    this.getUser();
   }
 
   /**
@@ -29,15 +29,12 @@ export class ProfilePageComponent implements OnInit{
    * and set the uer variable to the user object
    * @returns object with user information
    */
-  getUserInfo(): void {
-    this.fetchApiDataService.getUser(this.user).subscribe((res: any)=>{
-      this.user={
-        ...res,
-        Birthday: new Date(res.Birthday).toLocaleDateString()
-      };
-      //console.log('getUserInfo():', this.user);
+  getUser(): void {
+    this.fetchApiDataService.getUser().subscribe((resp: any)=>{
+      this.user = resp;
+      console.log("getting user data!");
       return this.user;
-    })
+    });
   }
 
   /**
