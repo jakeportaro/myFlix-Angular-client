@@ -38,6 +38,11 @@ ngOnInit(): void {
 // This is the function responsible for sending the form inputs to the backend
 loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((response) => {
+      //this will store the user data into local storage
+      localStorage.setItem('user', response.user.Username);
+      localStorage.setItem('token', response.token);
+
+
   // Logic for a successful user login goes here! (To be implemented)
      this.dialogRef.close(); // This will close the modal on success!
      console.log(response);

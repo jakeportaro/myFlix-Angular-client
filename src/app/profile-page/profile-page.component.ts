@@ -12,12 +12,12 @@ export class ProfilePageComponent implements OnInit{
 
   user: any={};
 
-  @Input() userUpdateData = { Username: '', Password: '', Email: '', Birthday: '' };//Decorator
+  @Input() updatedUser = { Username: '', Password: '', Email: '', Birthday: '' };//Decorator
 
   constructor(
     public fetchApiDataService: FetchApiDataService,
     public snackBar: MatSnackBar,
-    private router: Router
+    public router: Router
     ) {}
 
   ngOnInit(): void {
@@ -32,7 +32,7 @@ export class ProfilePageComponent implements OnInit{
   getUser(): void {
     this.fetchApiDataService.getUser().subscribe((resp: any)=>{
       this.user = resp;
-      console.log("getting user data!");
+      console.log(this.user);
       return this.user;
     });
   }
@@ -43,7 +43,7 @@ export class ProfilePageComponent implements OnInit{
    * @remarks
    * Make API call to delete the user, navigate of welcome-page and remove user info from localStorage
    */
-  onDeleteAccount(username: string): void {
+  onDeleteAccount(): void {
     if (confirm('Are you sure you want to delete your account? This action cannnot be undone.')) {
       this.router.navigate(['welcome']).then(() => {
         localStorage.removeItem('token');
@@ -66,9 +66,12 @@ export class ProfilePageComponent implements OnInit{
    * Make API call to update the user, reset the localstorage and reload the profile-page
    */
   onUserUpdate(): void {
-    this.fetchApiDataService.updateUser(this.userUpdateData).subscribe((response) => {
+    console.log('before');
+    this.fetchApiDataService.updateUser(this.updatedUser).subscribe((response) => {
+
+      console.log('after');
       // Logic for a successful user registration goes here! (To be implemented)
-      localStorage.setItem('username', response.Username);
+      localStorage.setItem('user', response.Username);
       this.snackBar.open('Your profile is updated successfully!', 'OK', {
         duration: 4000
       });
