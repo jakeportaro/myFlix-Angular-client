@@ -16,17 +16,7 @@
     font-size: 40px;
 }
 
-.actions button {
 
-    border: 5px;
-    border-style:inset;
-    border-radius: 20%;
-    border-color: rgb(89, 81, 81);
-    background-color: black;
-    font-size: 20px;
-    margin-right: 40px;
-    color: white;
-}
 
 .actions button:hover {
 background-color: white;
@@ -42,4 +32,26 @@ color: black;
     flex: 1 1 50%; /* two columns with equal width */
     padding: 10px; /* optional: add padding between columns */
   }
+
+  .favIcon {
+    background-color: none;
+    color: none;
+  }
   
+  .movie-button {
+    border: 5px;
+    border-style:inset;
+    border-radius: 20%;
+    border-color: rgb(89, 81, 81);
+    background-color: black;
+    font-size: 20px;
+    margin-right: 40px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .movie-button hover {
+    background-color: white;
+color: black;
+  }

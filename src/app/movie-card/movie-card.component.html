@@ -9,23 +9,26 @@
         <img class= "movie-img" src={{movie.ImagePath}} alt= {{movie.Title}} />
         <mat-card-actions class="actions">
             <button
-                mat-button
+                
                 color="primary"
                 (click)="openGenreDialog(movie.Genre.Name, movie.Genre.Description)"
+                class="movie-button"
             >
                 Genre
             </button>
             <button
-        mat-button
+        
         color="primary"
         (click)="openDirectorDialog(movie.Director.Name, movie.Director.Birthday)"
+        class="movie-button"
       >
         Director
       </button>
             <button
-                mat-button
+                
                 color="primary"
                 (click)="openDescriptionDialog(movie.Description)"
+                class="movie-button"
             >
                 Description
             </button>
@@ -34,7 +37,7 @@
         aria-label="Example icon button with a heart icon"
         (click)="onToggleFavMovie(movie._id)"
       >
-        <mat-icon class="favIcon">{{favoriteMovies.includes(movie._id) ? 'favorite' : 'favorite_border'}}</mat-icon>
+        <mat-icon id="favIcon">{{favoriteMovies.includes(movie._id) ? 'favorite' : 'favorite_border'}}</mat-icon>
       </button>
         </mat-card-actions>
     </mat-card>
